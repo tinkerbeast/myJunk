@@ -9,4 +9,4 @@ foreach(filename ${SOURCES})
 	list(APPEND OBJECTS ${filename})
 endforeach(filename ${SOURCES})
 
-add_library(simple_test STATIC ${OBJECTS})
+add_library(simple_test SHARED ${OBJECTS})
