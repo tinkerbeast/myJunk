@@ -14,13 +14,13 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 include_directories ("${PROJECT_SOURCE_DIR}/src")
 
-add_subdirectory ("${PROJECT_SOURCE_DIR}/src/simple")
+add_subdirectory ("${PROJECT_SOURCE_DIR}/src/misc")
 
 # == Testing modules  ========================================================
 
-add_subdirectory ("${PROJECT_SOURCE_DIR}/test/simple")
+add_subdirectory ("${PROJECT_SOURCE_DIR}/test/misc")
 
 # == Executable targets ======================================================
 
 add_executable(run_tests tests.cpp)
-target_link_libraries(run_tests ${GTEST_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} simple simple_test)
+target_link_libraries(run_tests ${GTEST_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} misc misc_test)
