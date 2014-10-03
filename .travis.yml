@@ -9,6 +9,13 @@ install:
   - sudo apt-get install libgtest-dev
 
 before_script:
+# Hack to build gtest
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+  - cd -
+# Standard pre-build  
   - mkdir build
   - cd build
   - cmake ../
