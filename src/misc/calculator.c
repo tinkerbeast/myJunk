@@ -20,7 +20,7 @@
  * @brief Implementations for a set of fuctions to do simple calculations.
  */
 
-#include "simple/calculator.h"
+#include "misc/calculator.h"
 
 
 /**
