@@ -24,8 +24,8 @@
  */
 
 
-#ifndef MYJUNK_SIMPLE_CALCULATOR_H
-#define MYJUNK_SIMPLE_CALCULATOR_H
+#ifndef MYJUNK_MISC_CALCULATOR_H
+#define MYJUNK_MISC_CALCULATOR_H
 
 #ifdef  __cplusplus
 extern "C" {

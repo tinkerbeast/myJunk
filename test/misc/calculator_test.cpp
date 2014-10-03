@@ -20,7 +20,7 @@
  * @brief Test cases for a simple caclulator
  */
 
-#include "simple/calculator.h"
+#include "misc/calculator.h"
 #include "gtest/gtest.h"
 
 
