@@ -1,6 +1,9 @@
 cmake_minimum_required (VERSION 2.6)
 project (myJunk)
 
+# Warning: TODO make it GCC unspecific, and file specific
+set(CMAKE_C_FLAGS "-std=c99") 
+
 # == Test dependencies =======================================================
 
 # Dependency on TEST library - pthread
