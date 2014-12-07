@@ -23,6 +23,11 @@
 #include "gtest/gtest.h"
 #include <iostream>
 
+
+/**
+ * Force dependencies to include the test libraries. GoogleTest will pass
+ * unconditionally unless libraries are not linked to.
+ */
 extern unsigned int marker_calculator_test;
 extern unsigned int marker_sync_test;
 

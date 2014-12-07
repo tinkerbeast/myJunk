@@ -23,6 +23,10 @@
 #include "misc/sync.h"
 #include "gtest/gtest.h"
 
+/**
+ * Force the test runner to be dependent on this variable so that this library
+ * is linked in.
+ */
 unsigned int marker_sync_test = 1;
 
 namespace {
