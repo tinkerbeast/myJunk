@@ -1,4 +1,6 @@
 /**
+ * Copyright 2014, Rishin Goswami
+ *
  * This file is part of myJunk.
  * 
  * myJunk is free software: you can redistribute it and/or modify

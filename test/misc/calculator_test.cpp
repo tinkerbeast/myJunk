@@ -1,4 +1,6 @@
 /**
+ * Copyright 2014, Rishin Goswami
+ *
  * This file is part of myJunk.
  * 
  * myJunk is free software: you can redistribute it and/or modify
@@ -30,7 +32,7 @@
 unsigned int marker_calculator_test = 1;
 
 
-TEST(CalculatorTest, Addition) {  
+TEST(CalculatorTest, Addition) {
   EXPECT_EQ(4, add(2, 2));
   EXPECT_EQ(0, add(2, -2));
   EXPECT_EQ(0, add(-2, 2));
@@ -38,11 +40,11 @@ TEST(CalculatorTest, Addition) {
   EXPECT_EQ(0, add(0, 0));
 }
 
-TEST(CalculatorTest, Multiplication) {  
-  EXPECT_EQ(4, multiply(2,2));
-  EXPECT_EQ(-4, multiply(2,-2));
-  EXPECT_EQ(-4, multiply(-2,2));
-  EXPECT_EQ(4, multiply(-2,-2));  
+TEST(CalculatorTest, Multiplication) {
+  EXPECT_EQ(4, multiply(2, 2));
+  EXPECT_EQ(-4, multiply(2, -2));
+  EXPECT_EQ(-4, multiply(-2, 2));
+  EXPECT_EQ(4, multiply(-2, -2));
 }
 
 

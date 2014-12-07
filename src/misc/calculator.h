@@ -1,4 +1,6 @@
 /**
+ * Copyright 2014, Rishin Goswami
+ *
  * This file is part of myJunk.
  * 
  * myJunk is free software: you can redistribute it and/or modify
@@ -24,8 +26,8 @@
  */
 
 
-#ifndef MYJUNK_MISC_CALCULATOR_H
-#define MYJUNK_MISC_CALCULATOR_H
+#ifndef MYJUNK_MISC_CALCULATOR_H_
+#define MYJUNK_MISC_CALCULATOR_H_
 
 #ifdef  __cplusplus
 extern "C" {
@@ -78,8 +80,8 @@ extern int multiply(const int num1, const int num2);
  */
 extern int divide(const int num1, const int num2);
 
-#ifdef  __cplusplus
+#ifdef __cplusplus
 }
 #endif
 
-#endif
+#endif  // MYJUNK_MISC_CALCULATOR_H_

@@ -1,4 +1,6 @@
 /**
+ * Copyright 2014, Rishin Goswami
+ *
  * This file is part of myJunk.
  * 
  * myJunk is free software: you can redistribute it and/or modify
@@ -31,8 +33,8 @@
  */
 
 
-#ifndef MYJUNK_MISC_SYNC_H
-#define MYJUNK_MISC_SYNC_H
+#ifndef MYJUNK_MISC_SYNC_H_
+#define MYJUNK_MISC_SYNC_H_
 
 #ifdef  __cplusplus
 extern "C" {
@@ -58,25 +60,32 @@ extern "C" {
  * Synchronisation type for mutex locks.
  */
 #define SYNC_M mutex_
- 
+
 
 // synchronized(mm, SYNC_R)
 // ==> __SYNC__(mm, rwlock_rd)
 // ==> __SYNCALIAS__(mm, rwlock_rd, __SYNC_X__, __SYNC_M__)(mm, rwlock_rd)
 // ==> __SYNC_X__(mm, rwlock_rd)
-#define __SYNC_X__(lockObj, lockType) for(int __sync_status__=!pthread_##lockType##lock(lockObj);  __sync_status__ ; pthread_##lockType##unlock(lockObj), __sync_status__=0)
+#define __SYNC_X__(lockObj, lockType) \
+    for (int __sync_status__ = !pthread_##lockType##lock(lockObj); \
+    __sync_status__ ; \
+    pthread_##lockType##unlock(lockObj), __sync_status__ = 0)
 
 // synchronized(mm)
 // ==> __SYNC__(mm)
 // ==> __SYNCALIAS__(mm, __SYNC_X__, __SYNC_M__)(mm)
 // ==> __SYNC_M__(mm)
-#define __SYNC_M__(lockObj) for(int __sync_status__=!pthread_mutex_lock(lockObj);  __sync_status__ ; pthread_mutex_unlock(lockObj), __sync_status__=0)
+#define __SYNC_M__(lockObj) \
+    for (int __sync_status__ = !pthread_mutex_lock(lockObj); \
+    __sync_status__ ; \
+    pthread_mutex_unlock(lockObj), __sync_status__ = 0)
 
 #define __SYNCALIAS__(_1, _2, NAME, ...) NAME
 
-#define __SYNC__(...) __SYNCALIAS__(__VA_ARGS__, __SYNC_X__, __SYNC_M__)(__VA_ARGS__)
+#define __SYNC__(...) \
+	__SYNCALIAS__(__VA_ARGS__, __SYNC_X__, __SYNC_M__)(__VA_ARGS__)
 
- 
+
 #define synchronized(...) __SYNC__(__VA_ARGS__)
 
 
@@ -97,8 +106,8 @@ extern int sync_incdec(int* variable, int inc_iterations, int dec_iterations);
 
 
 
-#ifdef  __cplusplus
+#ifdef __cplusplus
 }
 #endif
 
-#endif
+#endif  // MYJUNK_MISC_SYNC_H_
