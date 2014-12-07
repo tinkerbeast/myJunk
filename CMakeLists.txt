@@ -32,10 +32,10 @@ macro(add_gtest test_target test_runner src_targets)
       COMMAND ${test_target}_run #cmake 2.6 required
       DEPENDS ${test_target} ${test_runner} ${src_targets}
       WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
-      
-  add_executable(${test_target}_run ${test_runner})
+
+  add_executable(${test_target}_run  EXCLUDE_FROM_ALL ${test_runner})
   target_link_libraries(${test_target}_run gtest gtest_main ${CMAKE_THREAD_LIBS_INIT} ${test_target} ${src_targets})
-        
+
   add_dependencies(alltest ${test_target}_runtest)
 endmacro()
 

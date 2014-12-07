@@ -9,21 +9,20 @@ install:
   - sudo apt-get install libgtest-dev
 
 before_script:
-# Hack to build gtest
-  - cd /usr/src/gtest
-  - sudo cmake CMakeLists.txt
-  - sudo make
-  - sudo cp *.a /usr/lib
-  - cd -
+# Hack to get gtest
+  - mkdir lib
+  - wget https://googletest.googlecode.com/files/gtest-1.6.0.zip
+  - unzip gtest-1.6.0.zip
+  - mv gtest-1.6.0 com.googlecode.googletest
 # Standard pre-build  
   - mkdir build
   - cd build
   - cmake ../
-  
+
 script:
-  - make
-  - ./run_tests
+  - make alltest
 
 after_script:
   - cd ..
   - rm -rf build
+  - rm -rf lib
