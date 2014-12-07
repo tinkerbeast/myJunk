@@ -21,8 +21,19 @@
  */
 
 #include "gtest/gtest.h"
+#include <iostream>
+
+extern unsigned int marker_calculator_test;
+extern unsigned int marker_sync_test;
+
 
 GTEST_API_ int main(int argc, char **argv) {  
-  testing::InitGoogleTest(&argc, argv);
+
+  std::cout <<  "Following submdules are linked for testing:" << std::endl;
+  std::cout <<  "===========================================" << std::endl;
+  std::cout << "marker_calculator_test: " << marker_calculator_test << std::endl;
+  std::cout << "marker_sync_test: " << marker_sync_test << std::endl;
+
+  ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
 }

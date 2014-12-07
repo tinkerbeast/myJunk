@@ -17,11 +17,14 @@
 
 
 /**
- * @brief Test cases for a simple caclulator
+ * @brief Test cases for a simple calculator
  */
 
 #include "misc/calculator.h"
 #include "gtest/gtest.h"
+
+
+unsigned int marker_calculator_test = 1;
 
 
 TEST(CalculatorTest, Addition) {  

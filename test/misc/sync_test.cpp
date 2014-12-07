@@ -23,6 +23,7 @@
 #include "misc/sync.h"
 #include "gtest/gtest.h"
 
+unsigned int marker_sync_test = 1;
 
 namespace {
 
