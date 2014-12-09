@@ -11,9 +11,11 @@ install:
 before_script:
 # Hack to get gtest
   - mkdir lib
+  - cd lib
   - wget https://googletest.googlecode.com/files/gtest-1.6.0.zip
   - unzip gtest-1.6.0.zip
   - mv gtest-1.6.0 com.googlecode.googletest
+  - cd ../
 # Standard pre-build  
   - mkdir build
   - cd build
