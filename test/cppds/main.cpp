@@ -29,17 +29,15 @@
  * Force dependencies to include the test libraries. GoogleTest will pass
  * unconditionally unless libraries are not linked to.
  */
-extern unsigned int marker_calculator_test;
-extern unsigned int marker_sync_test;
-extern unsigned int marker_fixedpoint_test;
+extern unsigned int marker_singly_linked_list;
 
 
 GTEST_API_ int main(int argc, char **argv) {
-  std::cout << "Following submodules are linked for testing:" << std::endl;
-  std::cout << "============================================" << std::endl;
-  std::cout << "marker_calculator_test:" << marker_calculator_test << std::endl;
-  std::cout << "marker_sync_test:" << marker_sync_test << std::endl;
-  std::cout << "marker_fixedpoint_test:" << marker_fixedpoint_test << std::endl;
+  std::cout << "Following submdules are linked for testing:" << std::endl;
+  std::cout << "===========================================" << std::endl;
+  std::cout << "marker_singly_linked_list:"
+    << marker_singly_linked_list << std::endl;
+
 
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

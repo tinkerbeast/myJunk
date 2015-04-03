@@ -17,11 +17,14 @@ find_package (Threads)
 #include_directories(${GTEST_INCLUDE_DIRS})
 add_subdirectory("${PROJECT_SOURCE_DIR}/lib/com.googlecode.googletest" EXCLUDE_FROM_ALL)
 
+include_directories ("${PROJECT_SOURCE_DIR}/lib/com.googlecode.googletest/include")
+
 # == Source modules  =========================================================
 
 include_directories ("${PROJECT_SOURCE_DIR}/src")
 
 add_subdirectory ("${PROJECT_SOURCE_DIR}/src/misc") # misc
+add_subdirectory ("${PROJECT_SOURCE_DIR}/src/cppds") # cppds
 
 # == Testing modules  ========================================================
 
@@ -43,4 +46,7 @@ endmacro()
 
 add_subdirectory ("${PROJECT_SOURCE_DIR}/test/misc" EXCLUDE_FROM_ALL) # misc_test
 add_gtest(misc_test "${PROJECT_SOURCE_DIR}/test/misc/main.cpp" misc)
+
+add_subdirectory ("${PROJECT_SOURCE_DIR}/test/cppds" EXCLUDE_FROM_ALL) # cppds_test
+add_gtest(cppds_test "${PROJECT_SOURCE_DIR}/test/cppds/main.cpp" cppds)
 
