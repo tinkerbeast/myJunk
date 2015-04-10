@@ -36,16 +36,16 @@ TEST(FixedpointTest, Parse) {
   int status = -1;
   fixed32_t fixed;
 
-  status = fixedpoint_parse("1", &fixed);
+  status = fixedpoint_parseFixed32("1", &fixed);
   EXPECT_EQ(status, 0);
   EXPECT_EQ(65536, fixed);
 
 
-  status = fixedpoint_parse("0.5", &fixed);
+  status = fixedpoint_parseFixed32("0.5", &fixed);
   EXPECT_EQ(status, 0);
   EXPECT_EQ(32768, fixed);
   
-  status = fixedpoint_parse("-1", &fixed);
+  status = fixedpoint_parseFixed32("-1", &fixed);
   EXPECT_EQ(status, 0);
   EXPECT_EQ(0xffff0000, fixed);
 }

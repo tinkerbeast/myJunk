@@ -6,7 +6,6 @@ compiler:
 
 install:
   - sudo apt-get install build-essential
-  - sudo apt-get install libgtest-dev
 
 before_script:
 # Hack to get gtest
