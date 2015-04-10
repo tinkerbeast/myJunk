@@ -44,4 +44,8 @@ TEST(FixedpointTest, Parse) {
   status = fixedpoint_parse("0.5", &fixed);
   EXPECT_EQ(status, 0);
   EXPECT_EQ(32768, fixed);
+  
+  status = fixedpoint_parse("-1", &fixed);
+  EXPECT_EQ(status, 0);
+  EXPECT_EQ(0xffff0000, fixed);
 }

@@ -34,9 +34,9 @@ extern "C" {
 
 typedef int32_t fixed32_t;
 
-typedef uint32_t ufixed32_t;
+typedef int64_t fixed64_t;
 
-extern int fixedpoint_parse(const char * number, fixed32_t * fixed);
+extern int fixedpoint_parseFixed32(const char * number, fixed32_t * fixed);
 
 #ifdef __cplusplus
 }

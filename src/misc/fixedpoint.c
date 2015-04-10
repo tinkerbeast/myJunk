@@ -24,14 +24,24 @@
 
 #include "misc/fixedpoint.h"
 
-#include <stdio.h>
 
 
 
-extern int fixedpoint_parse(const char * number, fixed32_t * fixed) {
+/**
+ * @brief Parse a character string representing a decimal number and get it's
+ * corresponding 32-bit fixed-point representation.
+ */
+extern int fixedpoint_parseFixed32(const char * number, fixed32_t * fixed) {
     int pos = 0;
     uint16_t integer = 0;
     uint16_t fraction = 0;
+    int sign = 1;
+
+    // Check for sign
+    if (number[pos] == '-') {
+        sign = -1;
+        pos++;
+    }
 
     // Parse the integer portion
     while (number[pos] != '.' && number[pos] != '\0') {
@@ -43,14 +53,13 @@ extern int fixedpoint_parse(const char * number, fixed32_t * fixed) {
         pos++;
     }
 
-
+    // Is there a fraction portion?
     if (number[pos] == '\0') {
-        *fixed = (integer << 16) | fraction;
+        *fixed = ((integer << 16) | fraction) * sign;
         return 0;
     } else {
         pos++;
     }
-
 
     // Parse the fraction portion
     uint32_t numerator = 0;
@@ -65,7 +74,6 @@ extern int fixedpoint_parse(const char * number, fixed32_t * fixed) {
         pos++;
     }
 
-
     // Get the fractional part
     for (int i = 0; i < 16; i++) {
         numerator = numerator * 2;
@@ -78,6 +86,6 @@ extern int fixedpoint_parse(const char * number, fixed32_t * fixed) {
         }
     }
 
-    *fixed = (integer << 16) | fraction;
+    *fixed = ((integer << 16) | fraction) * sign;
     return 0;
 }
