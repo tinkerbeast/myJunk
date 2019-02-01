@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(dslink-cpp-PROTOCOL VERSION 0.0.1)
+project(myjunk VERSION 0.0.1)
 
 
 # TODO: cross compile includes
